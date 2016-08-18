@@ -12,8 +12,16 @@ from netlib import human
 
 
 class ResponseData(message.MessageData):
-    def __init__(self, http_version, status_code, reason=None, headers=(), content=None,
-                 timestamp_start=None, timestamp_end=None):
+    def __init__(
+        self,
+        http_version,
+        status_code,
+        reason=None,
+        headers=(),
+        content=None,
+        timestamp_start=None,
+        timestamp_end=None
+    ):
         if isinstance(http_version, six.text_type):
             http_version = http_version.encode("ascii", "strict")
         if isinstance(reason, six.text_type):
