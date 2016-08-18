@@ -1,7 +1,7 @@
 from netlib.http import http1
 from netlib.tcp import TCPClient
 from netlib.tutils import treq
-from . import tutils, tservers
+from .. import tutils, tservers
 
 
 class TestHTTPFlow(object):

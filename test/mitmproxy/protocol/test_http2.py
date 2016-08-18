@@ -13,11 +13,11 @@ from mitmproxy import options
 from mitmproxy.proxy.config import ProxyConfig
 
 import netlib
-from ..netlib import tservers as netlib_tservers
+from ...netlib import tservers as netlib_tservers
 from netlib.exceptions import HttpException
 from netlib.http.http2 import framereader
 
-from . import tservers
+from .. import tservers
 
 import logging
 logging.getLogger("hyper.packages.hpack.hpack").setLevel(logging.WARNING)
@@ -130,6 +130,7 @@ class _Http2TestBase(object):
             b"\r\n" % (self.server.server.address.port, self.server.server.address.port)
         )
         client.wfile.flush()
+        # TODO: rewrite as http.Request object with http.assemble_request
 
         # read CONNECT response
         while client.rfile.readline() != b"\r\n":
